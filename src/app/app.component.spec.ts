@@ -1,27 +1,40 @@
-import { TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { PostCardComponent } from './post-card/post-card.component';
+import { PostFormComponent } from './post-form/post-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 describe('AppComponent', () => {
-  beforeEach(() => TestBed.configureTestingModule({
-    declarations: [AppComponent]
-  }));
+  let component: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [AppComponent, PostCardComponent, PostFormComponent],
+      imports: [ReactiveFormsModule],
+    }).compileComponents();
 
-  it(`should have as title 'legacy-app'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('legacy-app');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
     fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('legacy-app app is running!');
+  });
+
+  it('should create the app!', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it('should add post to the list', () => {
+    const post = { title: 'Post title', body: 'Post body' };
+    component.addPost(post);
+
+    expect(component.posts).toEqual([
+      { title: 'Post title', body: 'Post body' },
+    ]);
+
+    component.addPost({ title: 'Post title 2', body: 'Post body 2' });
+    expect(component.posts).toEqual([
+      { title: 'Post title', body: 'Post body' },
+      { title: 'Post title 2', body: 'Post body 2' },
+    ]);
   });
 });
