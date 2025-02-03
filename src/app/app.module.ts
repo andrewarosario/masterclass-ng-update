@@ -7,9 +7,9 @@ import { PostFormComponent } from './post-form/post-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [AppComponent, PostCardComponent, PostFormComponent],
-  imports: [BrowserModule, ReactiveFormsModule],
-  providers: [],
-  bootstrap: [AppComponent],
+    declarations: [AppComponent],
+    imports: [BrowserModule, ReactiveFormsModule, PostCardComponent, PostFormComponent],
+    providers: [],
+    bootstrap: [AppComponent],
 })
 export class AppModule {}

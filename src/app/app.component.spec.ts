@@ -10,9 +10,9 @@ describe('AppComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [AppComponent, PostCardComponent, PostFormComponent],
-      imports: [ReactiveFormsModule],
-    }).compileComponents();
+    declarations: [AppComponent],
+    imports: [ReactiveFormsModule, PostCardComponent, PostFormComponent],
+}).compileComponents();
 
     fixture = TestBed.createComponent(AppComponent);
     component = fixture.componentInstance;

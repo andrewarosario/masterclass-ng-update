@@ -4,8 +4,7 @@ import { Post } from '../models/post';
 @Component({
     selector: 'app-post-card',
     templateUrl: './post-card.component.html',
-    styleUrls: ['./post-card.component.css'],
-    standalone: false
+    styleUrls: ['./post-card.component.css']
 })
 export class PostCardComponent {
   @Input({ required: true }) post: Post | null = null;
