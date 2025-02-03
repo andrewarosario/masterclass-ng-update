@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Post } from './models/post';
-import { NgFor } from '@angular/common';
+
 import { PostCardComponent } from './post-card/post-card.component';
 import { PostFormComponent } from './post-form/post-form.component';
 
@@ -8,7 +8,7 @@ import { PostFormComponent } from './post-form/post-form.component';
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css'],
-    imports: [NgFor, PostCardComponent, PostFormComponent]
+    imports: [PostCardComponent, PostFormComponent]
 })
 export class AppComponent {
   posts: Post[] = [];
