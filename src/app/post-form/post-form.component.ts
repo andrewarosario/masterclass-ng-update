@@ -3,9 +3,10 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { Post } from '../models/post';
 
 @Component({
-  selector: 'app-post-form',
-  templateUrl: './post-form.component.html',
-  styleUrls: ['./post-form.component.css'],
+    selector: 'app-post-form',
+    templateUrl: './post-form.component.html',
+    styleUrls: ['./post-form.component.css'],
+    standalone: false
 })
 export class PostFormComponent {
   @Output() submitForm = new EventEmitter<Post>();
