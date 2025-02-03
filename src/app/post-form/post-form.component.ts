@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, output } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Post } from '../models/post';
 
@@ -9,7 +9,7 @@ import { Post } from '../models/post';
     imports: [ReactiveFormsModule]
 })
 export class PostFormComponent {
-  @Output() submitForm = new EventEmitter<Post>();
+  readonly submitForm = output<Post>();
 
   form = new FormGroup({
     title: new FormControl('', { nonNullable: true }),

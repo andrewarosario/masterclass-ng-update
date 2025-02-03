@@ -7,16 +7,20 @@ describe('PostCardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    imports: [PostCardComponent],
-}).compileComponents();
+      imports: [PostCardComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(PostCardComponent);
     component = fixture.componentInstance;
 
-    component.post = {
+    // component.post = {
+    //   title: 'Post title',
+    //   body: 'Post body',
+    // };
+    fixture.componentRef.setInput('post', {
       title: 'Post title',
       body: 'Post body',
-    };
+    });
 
     fixture.detectChanges();
   });

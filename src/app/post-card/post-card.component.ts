@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { Post } from '../models/post';
 
 @Component({
@@ -7,5 +7,5 @@ import { Post } from '../models/post';
     styleUrls: ['./post-card.component.css']
 })
 export class PostCardComponent {
-  @Input({ required: true }) post: Post | null = null;
+  readonly post = input.required<Post | null>();
 }
